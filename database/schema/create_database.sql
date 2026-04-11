@@ -1,0 +1,1 @@
+create database decision_goal_analytics;
