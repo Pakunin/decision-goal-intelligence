@@ -14,4 +14,4 @@
 \i analytics/views.sql
 
 -- Sample data
-\i data/sample_data.sql
+\i sample_data/sample_data.sql
