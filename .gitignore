@@ -1,0 +1,52 @@
+node_modules
+package-lock.json
+
+.env
+.env.*
+
+# ========================
+# Logs
+# ========================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Build & Testing
+# ========================
+dist/
+build/
+coverage/
+.nyc_output/
+
+# ========================
+# OS Generated Files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ========================
+# IDEs and Editors
+# ========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+Misc/~$Report.docx
+Misc/ER.jpg
+Misc/Report_Review 2_DBMS.pdf
+Misc/Report_Review 1_DBMS.pdf
+Misc/Report.docx
+Misc/Review 1 PPT.pdf
+Misc/schema.png
