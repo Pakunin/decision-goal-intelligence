@@ -51,6 +51,7 @@ export default function DecisionsPage() {
     if (!selectedId) return;
     await addDecisionEvent(Number(selectedId), eventType, Number(confidence), outcome);
     notify('Event logged');
+    loadDecisions(user.user_id);
     setConfidence(''); setOutcome('');
   };
 
@@ -115,11 +116,11 @@ export default function DecisionsPage() {
                 {decisions.map(d => <option key={d.decision_id} value={d.decision_id}>{d.title}</option>)}
               </select>
               <select value={eventType} onChange={e => setEventType(e.target.value)} className={inputClass}>
-                <option value="revisit">Revisit</option>
-                <option value="postpone">Postpone</option>
-                <option value="decide">Decide</option>
+                <option value="REVISITED">Revisit</option>
+                <option value="POSTPONED">Postpone</option>
+                <option value="DECIDED">Decide</option>
               </select>
-              <input placeholder="Confidence (0-100)" value={confidence} onChange={e => setConfidence(e.target.value)} className={inputClass} />
+              <input placeholder="Confidence (0-10)" value={confidence} onChange={e => setConfidence(e.target.value)} className={inputClass} />
               <input placeholder="Outcome (optional)" value={outcome} onChange={e => setOutcome(e.target.value)} className={inputClass} />
               <button onClick={handleEvent} className="w-full py-2.5 rounded-lg bg-linear-to-r from-indigo-600 to-purple-600 text-white text-sm font-medium hover:opacity-90 transition-opacity">
                 Log Event
