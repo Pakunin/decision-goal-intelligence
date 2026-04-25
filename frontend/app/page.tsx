@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   // const maskPath = "path('M309.607 406C227.107 366.5 40.2071 201.458 0.607422 0.5H1080.11V960.5H309.607C309.607 960.5 291.607 917.5 345.107 849.5C398.607 781.5 481.607 741.5 463.607 621.5C445.607 501.5 392.107 445.5 309.607 406Z')";
-  const maskSvg = `url("data:image/svg+xml,%3Csvg viewBox='0 0 210 961' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M309.607 406C227.107 366.5 40.2071 201.458 0.607422 0.5H1080.11V960.5H309.607C309.607 960.5 291.607 917.5 345.107 849.5C398.607 781.5 481.607 741.5 463.607 621.5C445.607 501.5 392.107 445.5 309.607 406Z' fill='black'/%3E%3C/svg%3E")`;
+  const maskSvg = `url("data:image/svg+xml,%3Csvg viewBox='0 0 130 961' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M309.607 406C227.107 366.5 40.2071 201.458 0.607422 0.5H1080.11V960.5H309.607C309.607 960.5 291.607 917.5 345.107 849.5C398.607 781.5 481.607 741.5 463.607 621.5C445.607 501.5 392.107 445.5 309.607 406Z' fill='black'/%3E%3C/svg%3E")`;
   // const linePath = "M0.490234 0.0966797C40.0899 201.054 226.99 366.097 309.49 405.597C391.99 445.097 445.49 501.097 463.49 621.097C481.49 741.097 398.49 781.097 344.99 849.097C291.49 917.097 309.49 960.097 309.49 960.097"
 
   const handleLogin = async () => {
@@ -93,7 +93,7 @@ export default function LoginPage() {
         </button>
       </div>
 
-      <div className="absolute top-90 w-137.5 h-52.5 overflow-hidden flex items-center justify-center left-60 z-5 pointer-events-none">
+      <div className="absolute top-90 w-137.5 h-53 overflow-hidden flex items-center justify-center left-60 z-5 pointer-events-none">
         <h1 className="relative font-hand text-[#E6BBBB] text-[266px] mt-13 leading-none inline-block [-webkit-text-stroke:2.79px_black]">
           NUDGE
         </h1>
