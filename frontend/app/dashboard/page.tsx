@@ -134,9 +134,9 @@ export default function DashboardPage() {
                     <div className="w-2 h-2 rounded-full bg-black mt-3 ml-2 shrink-0" />
                     <div>
                       <p className="text-[30px] font-hand text-black leading-none tracking-wider mb-0.2">
-                        {d.title}
+                        {d.title.length > 60 ? `${d.title.slice(0, 60)}...` : d.title}
                       </p>
-                      <p className="text-xs text-black mb-1 leading-none">
+                      <p className="text-xs text-black mb-1 mt-0.5 leading-none">
                         {d.category || "Uncategorized"} · {d.event_count} events
                       </p>
                     </div>
@@ -182,7 +182,7 @@ export default function DashboardPage() {
                     <div className="w-2 h-2 rounded-full bg-black mt-3 ml-2 shrink-0" />
                     <div>
                       <p className="text-[30px] font-hand text-black leading-none tracking-wider mb-0.2">
-                        {g.title}
+                        {g.title.length > 60 ? `${g.title.slice(0, 60)}...` : g.title}
                       </p>
                       <p className="text-xs text-black mb-1 leading-none">
                         Last action:{" "}
