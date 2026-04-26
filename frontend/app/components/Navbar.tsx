@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav className="relative w-full flex justify-center items-center">
-      <div className="relative w-[100%] w-[1200px] h-[110px] flex items-center justify-center">
+      <div className="relative w-[1200px] h-[110px] flex items-center justify-center">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={navbar}
