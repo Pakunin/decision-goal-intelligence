@@ -7,6 +7,8 @@ import { getUser } from "../../utils/auth";
 import PageWrapper from "../components/PageWrapper";
 import Image from "next/image";
 import statcard from "../../public/statcard.svg";
+import recent from "../../public/recents.svg";
+import recentflip from "../../public/recentsflipped.svg";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -26,8 +28,8 @@ export default function DashboardPage() {
   }, []);
 
   const activeGoals = goals.filter((g) => !g.is_abandoned);
-  const recentDecisions = decisions.slice(0, 4);
-  const recentActions = goals.filter((g) => g.last_action_date).slice(0, 4);
+  const recentDecisions = decisions.slice(0, 3);
+  const recentActions = goals.filter((g) => g.last_action_date).slice(0, 3);
 
   const stats = [
     {
@@ -95,72 +97,103 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6 mt-15">
+      <div className="grid grid-cols-2 max-w-[1580px] mx-auto gap-6 mt-15">
         {/* Recent Decisions */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold">Recent Decisions</h2>
-            <a
-              href="/decisions"
-              className="text-xs text-indigo-400 hover:text-indigo-300"
-            >
-              View all →
-            </a>
+        <div className="relative h-auto min-h-[450px] flex flex-col group">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={recent}
+              alt="background"
+              fill
+              className="object-fill"
+              priority
+            />
           </div>
-          {recentDecisions.length === 0 ? (
-            <p className="text-gray-500 text-sm">No decisions yet</p>
-          ) : (
-            <div className="flex flex-col gap-3">
-              {recentDecisions.map((d) => (
-                <div
-                  key={d.decision_id}
-                  className="flex items-start gap-3 p-3 bg-gray-700/50 rounded-lg"
-                >
-                  <div className="w-2 h-2 rounded-full bg-indigo-400 mt-1.5 shrink-0" />
-                  <div>
-                    <p className="text-sm text-white font-medium">{d.title}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">
-                      {d.category || "Uncategorized"} · {d.event_count} events
-                    </p>
-                  </div>
-                </div>
-              ))}
+
+          <div className="relative z-10 flex flex-col p-15">
+            <div className="flex justify-between items-baseline">
+              <h2 className="text-[52px] text-black font-hand leading-none mt-2 ml-5 mb-4">
+                Recent Decisions
+              </h2>
+              {/* <a
+                href="/decisions"
+                className="text-[20px] text-black font-hand leading-none hover:text-blue-500"
+              >
+                View all →
+              </a> */}
             </div>
-          )}
+            {recentDecisions.length === 0 ? (
+              <p className="text-[30px] font-hand text-black leading-none ml-6">No decisions yet</p>
+            ) : (
+              <div className="flex flex-col gap-3 w-[614px] mx-auto">
+                {recentDecisions.map((d) => (
+                  <div
+                    key={d.decision_id}
+                    className="flex items-start gap-3 p-2 border-4 border-black rounded-[20px]"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-black mt-3 ml-2 shrink-0" />
+                    <div>
+                      <p className="text-[30px] font-hand text-black leading-none tracking-wider mb-0.2">
+                        {d.title}
+                      </p>
+                      <p className="text-xs text-black mb-1 leading-none">
+                        {d.category || "Uncategorized"} · {d.event_count} events
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Recent Goal Activity */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-white font-semibold">Recent Goal Activity</h2>
-            <a
+        <div className="relative h-auto min-h-[450px] flex flex-col group">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={recentflip}
+              alt="background"
+              fill
+              className="object-fill"
+              priority
+            />
+          </div>
+          <div className="relative z-10 flex flex-col p-15">
+            <div className="flex justify-between items-baseline">
+              <h2 className="text-[52px] text-black font-hand leading-none mt-2 ml-5 mb-4">
+                Recent Goal Activity
+              </h2>
+              {/* <a
               href="/goals"
               className="text-xs text-emerald-400 hover:text-emerald-300"
             >
               View all →
-            </a>
-          </div>
-          {recentActions.length === 0 ? (
-            <p className="text-gray-500 text-sm">No goal activity yet</p>
-          ) : (
-            <div className="flex flex-col gap-3">
-              {recentActions.map((g) => (
-                <div
-                  key={g.goal_id}
-                  className="flex items-start gap-3 p-3 bg-gray-700/50 rounded-lg"
-                >
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
-                  <div>
-                    <p className="text-sm text-white font-medium">{g.title}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">
-                      Last action:{" "}
-                      {new Date(g.last_action_date).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            </a> */}
             </div>
-          )}
+            {recentActions.length === 0 ? (
+              <p className="text-[30px] font-hand text-black leading-none ml-6">No goal activity yet</p>
+            ) : (
+              <div className="flex flex-col gap-3 w-[614px] mx-auto">
+                {recentActions.map((g) => (
+                  <div
+                    key={g.goal_id}
+                    className="flex items-start gap-3 p-2 border-4 border-black rounded-[20px]"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-black mt-3 ml-2 shrink-0" />
+                    <div>
+                      <p className="text-[30px] font-hand text-black leading-none tracking-wider mb-0.2">
+                        {g.title}
+                      </p>
+                      <p className="text-xs text-black mb-1 leading-none">
+                        Last action:{" "}
+                        {new Date(g.last_action_date).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </PageWrapper>
